@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة قمة الأداء الأول لاستيراد السيارات</title>
+    <!-- استدعاء خط القاهرة (Cairo) لمظهر عربي عصري وفخم -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة Tailwind CSS للتصميم المتجاوب -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- استدعاء أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        dark: {
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f2937',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        /* خلفية القسم الرئيسي للشاحنات والسيارات الثقيلة */
+        .hero-bg {
+            background: linear-gradient(to left, rgba(11, 15, 25, 0.95) 30%, rgba(11, 15, 25, 0.80) 100%),
+                        url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        /* تأثيرات البطاقات الزجاجية */
+        .glass-card {
+            background: rgba(31, 41, 55, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow: 0 20px 30px -10px rgba(245, 158, 11, 0.15);
+        }
+        /* تدرج النص الذهبي */
+        .gold-gradient-text {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b, #fde68a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* إشعار النسخ */
+        #toast-notification {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="selection:bg-amber-500 selection:text-black">
+
+    <!-- شريط التنقل العلوي (Navbar) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- الشعار واسم الشركة -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-dark-900 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-truck-moving text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-lg sm:text-xl font-black tracking-wide text-white">قمة الأداء الأول</span>
+                        <span class="block text-xs text-amber-400 font-semibold">لاستيراد السيارات الثقيلة والشاحنات</span>
+                    </div>
+                </a>
+
+                <!-- روابط سطح المكتب -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-gray-300">
+                    <a href="#home" class="hover:text-amber-400 transition">الرئيسية</a>
+                    <a href="#about" class="hover:text-amber-400 transition">نبذة عنا</a>
+                    <a href="#vision-goals" class="hover:text-amber-400 transition">رؤيتنا وأهدافنا</a>
+                    <a href="#services" class="hover:text-amber-400 transition">خدماتنا</a>
+                    <a href="#studio" class="hover:text-amber-400 transition">الاستوديو</a>
+                    <a href="#contact" class="hover:text-amber-400 transition">تواصل معنا</a>
+                </nav>
+
+                <!-- أزرار التواصل السريع في الهيدر -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="https://wa.me/218947190000" target="_blank" rel="noopener noreferrer" 
+                       class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/20 transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>واتساب مباشر</span>
+                    </a>
+                    <a href="tel:0912133693" 
+                       class="flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-dark-900 px-4 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-amber-500/20 transition">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span dir="ltr">091 213 3693</span>
+                    </a>
+                </div>
+
+                <!-- زر القائمة للموبايل -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-amber-400 p-2 rounded-lg focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- قائمة الموبايل المنسدلة -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-gray-800 px-4 pt-3 pb-6 space-y-2">
+            <a href="#home" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">الرئيسية</a>
+            <a href="#about" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">نبذة عن الشركة</a>
+            <a href="#vision-goals" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">رؤيتنا وأهدافنا</a>
+            <a href="#services" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">خدماتنا</a>
+            <a href="#studio" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">الاستوديو</a>
+            <a href="#contact" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">تواصل معنا والخريطة</a>
+            <div class="pt-3 grid grid-cols-2 gap-3 border-t border-gray-700">
+                <a href="tel:0912133693" class="flex items-center justify-center gap-2 bg-amber-500 text-dark-900 py-2.5 rounded-xl font-bold text-sm">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>اتصال</span>
+                </a>
+                <a href="https://wa.me/218947190000" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-sm">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>واتساب</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي (Hero Section) -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-24 pb-16 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <!-- النصوص الترحيبية المختصرة -->
+                <div class="lg:col-span-7 space-y-5 text-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-bold">
+                        <i class="fa-solid fa-truck-front"></i>
+                        <span>المتخصصون في الشاحنات والآليات الثقيلة</span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl font-black leading-tight text-white">
+                        شركة <span class="gold-gradient-text">قمة الأداء الأول</span> لاستيراد السيارات الثقيلة
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl">
+                        نستورد أفضل الشاحنات، رؤوس القاطرات، والمعدات الثقيلة من الأسواق العالمية إلى ليبيا بجودة مضمونة وأسعار تنافسية.
+                    </p>
+
+                    <!-- أزرار الإجراءات السريعة -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#contact" class="px-7 py-3.5 rounded-2xl bg-gradient-to-l from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-dark-900 font-black text-base shadow-xl shadow-amber-500/25 flex items-center gap-3 transition">
+                            <span>اطلب شاحنتك الآن</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                        <a href="#studio" class="px-7 py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-bold text-base flex items-center gap-3 transition">
+                            <i class="fa-regular fa-images text-amber-400"></i>
+                            <span>الاستوديو</span>
+                        </a>
+                    </div>
+
+                    <!-- شريط الأرقام المباشرة في الواجهة -->
+                    <div class="pt-4 grid sm:grid-cols-2 gap-4 max-w-xl">
+                        <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block">اتصال مباشر</span>
+                                    <a href="tel:0912133693" dir="ltr" class="text-base font-extrabold text-white hover:text-amber-400 transition">091 213 3693</a>
+                                </div>
+                            </div>
+                            <button onclick="copyPhone('0912133693')" title="نسخ الرقم" class="text-gray-400 hover:text-amber-400 p-2 rounded-lg hover:bg-white/5 transition">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block">واتساب + عادي</span>
+                                    <a href="https://wa.me/218947190000" target="_blank" dir="ltr" class="text-base font-extrabold text-white hover:text-emerald-400 transition">094 719 0000</a>
+                                </div>
+                            </div>
+                            <button onclick="copyPhone('0947190000')" title="نسخ الرقم" class="text-gray-400 hover:text-emerald-400 p-2 rounded-lg hover:bg-white/5 transition">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة العرض التوضيحية في الهيرو -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card rounded-3xl p-6 border border-amber-500/20 relative">
+                        <img src="https://images.unsplash.com/photo-1586191582151-f73872dfd183?auto=format&fit=crop&w=900&q=80" 
+                             onerror="this.src='https://placehold.co/800x500/111827/f59e0b?text=Heavy+Trucks'"
+                             alt="استيراد شاحنات وسيارات ثقيلة" 
+                             class="w-full h-60 object-cover rounded-2xl mb-5 shadow-2xl">
+                        
+                        <div class="grid grid-cols-3 gap-3 text-center">
+                            <div class="bg-dark-900/70 p-3 rounded-2xl border border-gray-800">
+                                <span class="block text-xl font-black text-amber-400">100%</span>
+                                <span class="text-xs text-gray-400">فحص شامل</span>
+                            </div>
+                            <div class="bg-dark-900/70 p-3 rounded-2xl border border-gray-800">
+                                <span class="block text-xl font-black text-amber-400">سريع</span>
+                                <span class="text-xs text-gray-400">شحن دولي</span>
+                            </div>
+                            <div class="bg-dark-900/70 p-3 rounded-2xl border border-gray-800">
+                                <span class="block text-xl font-black text-amber-400">منافسة</span>
+                                <span class="text-xs text-gray-400">أفضل الأسعار</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نبذة عن الشركة (About Us) مختصر -->
+    <section id="about" class="py-16 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=80" 
+                         onerror="this.src='https://placehold.co/700x450/1f2937/fbbf24?text=Heavy+Vehicles'"
+                         alt="نبذة عن الشركة" 
+                         class="rounded-3xl w-full h-72 object-cover shadow-2xl border border-gray-700">
+                </div>
+
+                <div class="lg:col-span-7 space-y-4 order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 text-amber-400 font-bold text-sm">
+                        <span class="w-6 h-0.5 bg-amber-400"></span>
+                        <span>من نحن</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white">
+                        نبذة عن <span class="text-amber-400">قمة الأداء الأول</span>
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed text-base">
+                        شركة متخصصة في استيراد السيارات الثقيلة، الشاحنات، المقطورات، والمعدات من الأسواق الأوروبية والعالمية إلى ليبيا، مع ضمان الفحص الفني الدقيق وسرعة الإنجاز.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-center gap-3 bg-dark-900/60 p-3.5 rounded-2xl border border-gray-800">
+                            <i class="fa-solid fa-circle-check text-amber-400 text-lg"></i>
+                            <span class="font-bold text-white text-sm">عقود رسمية وموثقة</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-dark-900/60 p-3.5 rounded-2xl border border-gray-800">
+                            <i class="fa-solid fa-circle-check text-amber-400 text-lg"></i>
+                            <span class="font-bold text-white text-sm">فحص فني شامل قبل الشحن</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم رؤيتنا وأهداف الشركة (Vision & Goals) مختصر -->
+    <section id="vision-goals" class="py-16 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-white">رؤيتنا وأهدافنا</h2>
+                <p class="text-gray-400 text-sm">نلتزم بالجودة والمصداقية في توفير أفضل الآليات الثقيلة لعملائنا.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+                <!-- الرؤية -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-6 flex flex-col justify-center border-t-4 border-t-amber-500 space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500 text-dark-900 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">رؤيتنا</h3>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                        الريادة في استيراد الشاحنات والسيارات الثقيلة في ليبيا، وتقديم خدمة موثوقة تجمع بين الجودة العالية والسرعة في التسليم.
+                    </p>
+                </div>
+
+                <!-- الأهداف -->
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+                    <div class="glass-card p-5 rounded-2xl flex items-start gap-3">
+                        <i class="fa-solid fa-bullseye text-amber-400 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-base">جودة مضمونة</h4>
+                            <p class="text-gray-400 text-xs mt-1">اختيار شاحنات وآليات مفحوصة بعناية فائقة.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl flex items-start gap-3">
+                        <i class="fa-solid fa-hand-holding-dollar text-amber-400 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-base">أسعار مدروسة</h4>
+                            <p class="text-gray-400 text-xs mt-1">تكلفة استيراد وشحن منافسة وشفافة.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl flex items-start gap-3">
+                        <i class="fa-solid fa-clock text-amber-400 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-base">سرعة التوريد</h4>
+                            <p class="text-gray-400 text-xs mt-1">شحن بحري مباشر وتخليص جمركي سريع.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl flex items-start gap-3">
+                        <i class="fa-solid fa-handshake text-amber-400 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-base">ثقة ومصداقية</h4>
+                            <p class="text-gray-400 text-xs mt-1">متابعة مستمرة مع العميل حتى استلام المركبة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم خدماتنا (Our Services) مختصر -->
+    <section id="services" class="py-16 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-white">خدماتنا</h2>
+                <p class="text-gray-400 text-sm">خدمات متكاملة لاستيراد الشاحنات والآليات الثقيلة.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- خدمة 1 -->
+                <div class="glass-card rounded-3xl p-6 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-truck-Monster fa-truck"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">استيراد الشاحنات</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        توفير رؤوس القاطرات، الشاحنات، والمقطورات حسب الطلب.
+                    </p>
+                </div>
+
+                <!-- خدمة 2 -->
+                <div class="glass-card rounded-3xl p-6 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-Clipboard-check fa-file-shield"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">الفحص الفني</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        معاينة وفحص المحركات والهيكل للتأكد من سلامة الآلية.
+                    </p>
+                </div>
+
+                <!-- خدمة 3 -->
+                <div class="glass-card rounded-3xl p-6 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-ship"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">الشحن البحري</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        شحن آمن ومباشر للآليات الثقيلة إلى الموانئ الليبية.
+                    </p>
+                </div>
+
+                <!-- خدمة 4 -->
+                <div class="glass-card rounded-3xl p-6 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">التخليص والتسليم</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        إتمام الإجراءات الجمركية وتسليم الشاحنة جاهزة للعمل.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاستوديو (Studio) - معرض صور الشاحنات والآليات الثقيلة -->
+    <section id="studio" class="py-20 bg-dark-900 relative border-t border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 shadow-sm">
+                    <i class="fa-solid fa-camera"></i> معرض الصور الحصري
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white">استوديو الشاحنات والآليات</h2>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                    استعراض لأحدث الشاحنات والسيارات الثقيلة المستوردة والمتاحة لعملائنا بأفضل المواصفات القياسية.
+                </p>
+            </div>
+
+            <!-- شبكة معرض الصور (11 صورة) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- صورة 1 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(0)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(1).jpeg" alt="شاحنة IVECO T-WAY للنقل الشاق" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">شاحنة ثقيلة</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة IVECO T-WAY للنقل الشاق</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 01
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 2 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(1)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(2).jpeg" alt="شاحنة نقل ثقيل متطورة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">شاحنة ثقيلة</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة نقل ثقيل متطورة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 02
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 3 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(2)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(3).jpeg" alt="شاحنة نقل أوزان ثقيلة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">شاحنة ثقيلة</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة نقل أوزان ثقيلة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 03
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 4 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(3)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(4).jpeg" alt="رأس شاحنة مجهز للأعمال الشاقة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">رؤوس شاحنات</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">رأس شاحنة مجهز للأعمال الشاقة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 04
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 5 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(4)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(5).jpeg" alt="شاحنة مهام احترافية" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">نقل ومقاولات</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة مهام احترافية</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 05
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 6 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(5)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(6).jpeg" alt="شاحنة نقل تجاري أوروبي" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">شاحنات تجارية</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة نقل تجاري أوروبي</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 06
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 7 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(6)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(7).jpeg" alt="شاحنة ثقيلة بهيكل متين" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">شاحنات ثقيلة</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة ثقيلة بهيكل متين</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 07
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 8 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(7)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(8).jpeg" alt="شاحنة قوية للطرق الوعرة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">مهام شاقة</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة قوية للطرق الوعرة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 08
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 9 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(8)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(9).jpeg" alt="شاحنة أعمال مقاولات وإنشاءات" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">آليات ومعدات</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة أعمال مقاولات وإنشاءات</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 09
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 10 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(9)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(10).jpeg" alt="رأس جرار عالي الكفاءة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">رؤوس شاحنات</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">رأس جرار عالي الكفاءة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 10
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 11 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(10)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(11).jpeg" alt="شاحنة مواصفات قياسية معتمدة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">شاحنات ثقيلة</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">شاحنة مواصفات قياسية معتمدة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 11
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل والخريطة (Contact & Map Section) -->
+    <section id="contact" class="py-16 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-white">تواصل معنا وموقعنا</h2>
+                <p class="text-gray-400 text-sm">نسعد باستقبال استفساراتكم عبر الهاتف أو الواتساب أو زيارتنا في مقر الشركة.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <!-- معلومات الاتصال ونموذج الطلب السريع عبر واتساب -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- بطاقات الأرقام -->
+                    <div class="glass-card p-6 rounded-3xl space-y-5">
+                        <h3 class="text-xl font-bold text-white border-b border-gray-700 pb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-address-book text-amber-400"></i>
+                            <span>أرقام التواصل المباشر</span>
+                        </h3>
+
+                        <!-- الرقم الأول: 0912133693 -->
+                        <div class="bg-dark-900/80 p-4 rounded-2xl border border-gray-800 flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block">اتصال هاتفي مباشر</span>
+                                    <a href="tel:0912133693" dir="ltr" class="text-xl font-black text-white hover:text-amber-400 transition block">
+                                        091 213 3693
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="tel:0912133693" class="bg-amber-500 hover:bg-amber-400 text-dark-900 font-bold text-xs px-3.5 py-2 rounded-xl transition">
+                                    اتصال
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- الرقم الثاني: 0947190000 (واتس وعادي) -->
+                        <div class="bg-dark-900/80 p-4 rounded-2xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-emerald-400 font-bold block">متاح واتساب + اتصال عادي</span>
+                                    <a href="tel:0947190000" dir="ltr" class="text-xl font-black text-white hover:text-emerald-400 transition block">
+                                        094 719 0000
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="https://wa.me/218947190000" target="_blank" rel="noopener noreferrer" 
+                                   class="flex-1 sm:flex-initial text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition flex items-center justify-center gap-1">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>واتساب</span>
+                                </a>
+                                <a href="tel:0947190000" 
+                                   class="flex-1 sm:flex-initial text-center bg-gray-700 hover:bg-gray-600 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition">
+                                    اتصال
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- نموذج إرسال طلب سيارة سريع عبر الواتساب -->
+                    <div class="glass-card p-6 rounded-3xl space-y-4">
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane text-amber-400"></i>
+                            <span>اطلب شاحنتك عبر واتساب</span>
+                        </h3>
+                        <form id="whatsapp-form" class="space-y-3" onsubmit="sendToWhatsApp(event)">
+                            <div>
+                                <label class="text-xs text-gray-400 block mb-1">الاسم الكريم</label>
+                                <input type="text" id="client-name" required placeholder="أدخل اسمك..." 
+                                       class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                            </div>
+                            <div>
+                                <label class="text-xs text-gray-400 block mb-1">نوع الشاحنة أو الآلية المطلوبة</label>
+                                <input type="text" id="car-model" required placeholder="مثال: رأس قاطرة مرسيدس أكتروس / شاحنة مان..." 
+                                       class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                            </div>
+                            <div>
+                                <label class="text-xs text-gray-400 block mb-1">ملاحظات إضافية</label>
+                                <textarea id="car-notes" rows="2" placeholder="الموديل أو المواصفات المطلوبة..." 
+                                          class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 transition">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>إرسال الطلب عبر واتساب</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- الخريطة المضمنة (Google Maps Iframe) -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-4 sm:p-6 rounded-3xl space-y-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-amber-400 text-xl"></i>
+                                <h3 class="text-xl font-bold text-white">موقع الشركة على الخريطة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/15 text-amber-400 px-3 py-1 rounded-full font-semibold">
+                                طرابلس، ليبيا
+                            </span>
+                        </div>
+
+                        <!-- إطار الخريطة المرفق من المستخدم مع جعله متجاوباً بالكامل -->
+                        <div class="w-full h-[420px] sm:h-[480px] rounded-2xl overflow-hidden border border-gray-700 shadow-inner">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3351.470712696913!2d13.244557975666103!3d32.859263073629315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDUxJzMzLjQiTiAxM8KwMTQnNDkuNyJF!5e0!3m2!1sen!2sly!4v1792602651185!5m2!1sen!2sly" 
+                                class="w-full h-full" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="strict-origin-when-cross-origin">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل (Footer) -->
+    <footer class="bg-dark-950 border-t border-gray-800/80 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-dark-900">
+                        <i class="fa-solid fa-truck-moving text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-black text-white">شركة قمة الأداء الأول لاستيراد السيارات الثقيلة</h4>
+                        <p class="text-xs text-gray-400">استيراد الشاحنات والآليات الثقيلة</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+                    <a href="tel:0912133693" class="hover:text-amber-400 transition"><i class="fa-solid fa-phone ml-1 text-amber-400"></i> <span dir="ltr">091 213 3693</span></a>
+                    <span>|</span>
+                    <a href="https://wa.me/218947190000" target="_blank" class="hover:text-emerald-400 transition"><i class="fa-brands fa-whatsapp ml-1 text-emerald-400"></i> <span dir="ltr">094 719 0000</span></a>
+                </div>
+
+                <p class="text-xs text-gray-500">
+                    © جميع الحقوق محفوظة لشركة قمة الأداء الأول لاستيراد السيارات.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب عائم للتواصل السريع -->
+    <a href="https://wa.me/218947190000" target="_blank" rel="noopener noreferrer" 
+       aria-label="تواصل عبر واتساب"
+       class="fixed bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center text-3xl shadow-2xl shadow-emerald-500/40 transition transform hover:scale-110">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- صندوق إشعار النسخ (بديل أنيق لـ alert) -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none bg-amber-500 text-dark-900 font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toast-text">تم نسخ الرقم بنجاح!</span>
+    </div>
+
+    <!-- نافذة عرض الصور المكبرة (Lightbox Modal) -->
+    <div id="image-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 backdrop-blur-md p-3 sm:p-6 transition-all" onclick="if(event.target === this) closeLightbox()">
+        <!-- زر الإغلاق -->
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-amber-500 hover:text-dark-900 text-white flex items-center justify-center transition-all duration-200 text-xl z-30 shadow-lg border border-white/10" title="إغلاق (Esc)">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- زر الصورة السابقة -->
+        <button onclick="prevLightboxImage()" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/10 hover:bg-amber-500 hover:text-dark-900 text-white flex items-center justify-center transition-all duration-200 text-xl z-30 shadow-lg border border-white/10" title="السابق (السهم الأيمن)">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- زر الصورة التالية -->
+        <button onclick="nextLightboxImage()" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/10 hover:bg-amber-500 hover:text-dark-900 text-white flex items-center justify-center transition-all duration-200 text-xl z-30 shadow-lg border border-white/10" title="التالي (السهم الأيسر)">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- حاوية الصورة والمعلومات -->
+        <div class="relative max-w-5xl max-h-[92vh] flex flex-col items-center select-none" onclick="event.stopPropagation()">
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-dark-900/60 shadow-2xl flex items-center justify-center max-h-[78vh]">
+                <img id="lightbox-img" src="(1).jpeg" alt="عرض مكبر للشاحنة" class="max-h-[78vh] max-w-full w-auto object-contain transition-opacity duration-200">
+            </div>
+            <!-- شريط الوصف والترقيم -->
+            <div class="w-full mt-3 flex items-center justify-between text-xs sm:text-sm px-2">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                    <span id="lightbox-title" class="font-bold text-white"></span>
+                </div>
+                <span id="lightbox-counter" class="text-gray-400 font-mono bg-white/10 px-3 py-1 rounded-full border border-white/10">1 / 11</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // التحكم في قائمة الموبايل
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // بيانات وتفاعلات معرض صور الاستوديو
+        const studioImages = [
+            { src: "(1).jpeg", title: "شاحنة IVECO T-WAY للنقل الشاق" },
+            { src: "(2).jpeg", title: "شاحنة نقل ثقيل متطورة" },
+            { src: "(3).jpeg", title: "شاحنة نقل أوزان ثقيلة" },
+            { src: "(4).jpeg", title: "رأس شاحنة مجهز للأعمال الشاقة" },
+            { src: "(5).jpeg", title: "شاحنة مهام احترافية" },
+            { src: "(6).jpeg", title: "شاحنة نقل تجاري أوروبي" },
+            { src: "(7).jpeg", title: "شاحنة ثقيلة بهيكل متين" },
+            { src: "(8).jpeg", title: "شاحنة قوية للطرق الوعرة" },
+            { src: "(9).jpeg", title: "شاحنة أعمال مقاولات وإنشاءات" },
+            { src: "(10).jpeg", title: "رأس جرار عالي الكفاءة" },
+            { src: "(11).jpeg", title: "شاحنة مواصفات قياسية معتمدة" }
+        ];
+
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightbox();
+            const modal = document.getElementById('image-lightbox');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('image-lightbox');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function nextLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % studioImages.length;
+            updateLightbox();
+        }
+
+        function prevLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + studioImages.length) % studioImages.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const item = studioImages[currentLightboxIndex];
+            const imgEl = document.getElementById('lightbox-img');
+            const titleEl = document.getElementById('lightbox-title');
+            const counterEl = document.getElementById('lightbox-counter');
+            if (imgEl && item) {
+                imgEl.src = item.src;
+                imgEl.alt = item.title;
+                if (titleEl) titleEl.textContent = item.title;
+                if (counterEl) counterEl.textContent = `${currentLightboxIndex + 1} / ${studioImages.length}`;
+            }
+        }
+
+        // مفاتيح لوحة المفاتيح للتحكم بالمعرض
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('image-lightbox');
+            if (!modal || modal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') prevLightboxImage(); // RTL layout
+            if (e.key === 'ArrowLeft') nextLightboxImage();
+        });
+
+        // وظيفة نسخ رقم الهاتف إلى الحافظة مع إشعار مرئي
+        function copyPhone(phoneNumber) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = phoneNumber;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(`تم نسخ الرقم: ${phoneNumber}`);
+            } catch (err) {
+                showToast('يمكنك الاتصال مباشرة بالضغط على الرقم');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // إرسال نموذج الطلب مباشرة إلى واتساب الشركة (0947190000)
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('client-name').value.trim();
+            const model = document.getElementById('car-model').value.trim();
+            const notes = document.getElementById('car-notes').value.trim();
+
+            const message = `السلام عليكم شركة قمة الأداء الأول لاستيراد السيارات الثقيلة،%0A` +
+                            `*الاسم:* ${name}%0A` +
+                            `*الآلية/الشاحنة المطلوبة:* ${model}%0A` +
+                            (notes ? `*ملاحظات:* ${notes}` : '');
+
+            const whatsappUrl = `https://wa.me/218947190000?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
