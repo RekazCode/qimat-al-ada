@@ -101,16 +101,21 @@
                 </nav>
 
                 <!-- أزرار التواصل السريع في الهيدر -->
-                <div class="hidden lg:flex items-center gap-3">
+                <div class="hidden lg:flex items-center gap-2.5">
                     <a href="https://wa.me/218947190000" target="_blank" rel="noopener noreferrer" 
-                       class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/20 transition">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>واتساب مباشر</span>
+                       class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl font-bold text-xs shadow-lg shadow-emerald-600/20 transition">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>واتساب</span>
                     </a>
-                    <a href="tel:0912133693" 
-                       class="flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-dark-900 px-4 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-amber-500/20 transition">
+                    <a href="tel:0912126370" 
+                       class="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-dark-900 px-3 py-2 rounded-xl font-bold text-xs shadow-lg shadow-amber-500/20 transition">
                         <i class="fa-solid fa-phone-volume"></i>
-                        <span dir="ltr">091 213 3693</span>
+                        <span dir="ltr">091 212 6370</span>
+                    </a>
+                    <a href="tel:0912125186" 
+                       class="flex items-center gap-1.5 bg-gray-800 hover:bg-gray-700 text-white border border-gray-700 hover:border-amber-500/50 px-3 py-2 rounded-xl font-bold text-xs shadow-lg transition">
+                        <i class="fa-solid fa-phone text-amber-400"></i>
+                        <span dir="ltr">091 212 5186</span>
                     </a>
                 </div>
 
@@ -129,14 +134,20 @@
             <a href="#services" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">خدماتنا</a>
             <a href="#studio" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">الاستوديو</a>
             <a href="#contact" class="mobile-link block py-2 px-3 rounded-lg hover:bg-gray-700/50 font-bold text-gray-200">تواصل معنا والخريطة</a>
-            <div class="pt-3 grid grid-cols-2 gap-3 border-t border-gray-700">
-                <a href="tel:0912133693" class="flex items-center justify-center gap-2 bg-amber-500 text-dark-900 py-2.5 rounded-xl font-bold text-sm">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>اتصال</span>
-                </a>
-                <a href="https://wa.me/218947190000" target="_blank" class="flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-sm">
+            <div class="pt-3 space-y-2 border-t border-gray-700">
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="tel:0912126370" class="flex items-center justify-center gap-1.5 bg-amber-500 text-dark-900 py-2.5 rounded-xl font-bold text-xs">
+                        <i class="fa-solid fa-phone"></i>
+                        <span dir="ltr">091 212 6370</span>
+                    </a>
+                    <a href="tel:0912125186" class="flex items-center justify-center gap-1.5 bg-gray-700 hover:bg-gray-600 text-white py-2.5 rounded-xl font-bold text-xs">
+                        <i class="fa-solid fa-phone text-amber-400"></i>
+                        <span dir="ltr">091 212 5186</span>
+                    </a>
+                </div>
+                <a href="https://wa.me/218947190000" target="_blank" class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-sm">
                     <i class="fa-brands fa-whatsapp"></i>
-                    <span>واتساب</span>
+                    <span>واتساب مباشر (094 719 0000)</span>
                 </a>
             </div>
         </div>
@@ -174,33 +185,51 @@
                     </div>
 
                     <!-- شريط الأرقام المباشرة في الواجهة -->
-                    <div class="pt-4 grid sm:grid-cols-2 gap-4 max-w-xl">
-                        <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
+                    <div class="pt-4 grid sm:grid-cols-3 gap-3 max-w-2xl">
+                        <!-- رقم 1 -->
+                        <div class="glass-card p-3.5 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-base shrink-0">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
-                                <div>
-                                    <span class="text-xs text-gray-400 block">اتصال مباشر</span>
-                                    <a href="tel:0912133693" dir="ltr" class="text-base font-extrabold text-white hover:text-amber-400 transition">091 213 3693</a>
+                                <div class="min-w-0">
+                                    <span class="text-[11px] text-gray-400 block truncate">اتصال مباشر</span>
+                                    <a href="tel:0912126370" dir="ltr" class="text-sm sm:text-base font-extrabold text-white hover:text-amber-400 transition block">091 212 6370</a>
                                 </div>
                             </div>
-                            <button onclick="copyPhone('0912133693')" title="نسخ الرقم" class="text-gray-400 hover:text-amber-400 p-2 rounded-lg hover:bg-white/5 transition">
+                            <button onclick="copyPhone('0912126370')" title="نسخ الرقم" class="text-gray-400 hover:text-amber-400 p-1.5 rounded-lg hover:bg-white/5 transition shrink-0">
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
 
-                        <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
-                                    <i class="fa-brands fa-whatsapp"></i>
+                        <!-- رقم 2 -->
+                        <div class="glass-card p-3.5 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-base shrink-0">
+                                    <i class="fa-solid fa-phone-volume"></i>
                                 </div>
-                                <div>
-                                    <span class="text-xs text-gray-400 block">واتساب + عادي</span>
-                                    <a href="https://wa.me/218947190000" target="_blank" dir="ltr" class="text-base font-extrabold text-white hover:text-emerald-400 transition">094 719 0000</a>
+                                <div class="min-w-0">
+                                    <span class="text-[11px] text-gray-400 block truncate">اتصال مباشر</span>
+                                    <a href="tel:0912125186" dir="ltr" class="text-sm sm:text-base font-extrabold text-white hover:text-amber-400 transition block">091 212 5186</a>
                                 </div>
                             </div>
-                            <button onclick="copyPhone('0947190000')" title="نسخ الرقم" class="text-gray-400 hover:text-emerald-400 p-2 rounded-lg hover:bg-white/5 transition">
+                            <button onclick="copyPhone('0912125186')" title="نسخ الرقم" class="text-gray-400 hover:text-amber-400 p-1.5 rounded-lg hover:bg-white/5 transition shrink-0">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- رقم 3 (واتساب) -->
+                        <div class="glass-card p-3.5 rounded-2xl flex items-center justify-between">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <span class="text-[11px] text-gray-400 block truncate">واتساب + عادي</span>
+                                    <a href="https://wa.me/218947190000" target="_blank" dir="ltr" class="text-sm sm:text-base font-extrabold text-white hover:text-emerald-400 transition block">094 719 0000</a>
+                                </div>
+                            </div>
+                            <button onclick="copyPhone('0947190000')" title="نسخ الرقم" class="text-gray-400 hover:text-emerald-400 p-1.5 rounded-lg hover:bg-white/5 transition shrink-0">
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
@@ -394,13 +423,13 @@
                 <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 shadow-sm">
                     <i class="fa-solid fa-camera"></i> معرض الصور الحصري
                 </span>
-                <h2 class="text-2xl sm:text-4xl font-black text-white">استوديو الشاحنات والآليات</h2>
+                <h2 class="text-2xl sm:text-4xl font-black text-white">استوديو الشاحنات والسيارات</h2>
                 <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                    استعراض لأحدث الشاحنات والسيارات الثقيلة المستوردة والمتاحة لعملائنا بأفضل المواصفات القياسية.
+                    استعراض لأحدث الشاحنات والسيارات والآليات المستوردة والمتاحة لعملائنا بأفضل المواصفات القياسية.
                 </p>
             </div>
 
-            <!-- شبكة معرض الصور (11 صورة) -->
+            <!-- شبكة معرض الصور (15 صورة) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- صورة 1 -->
                 <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(0)">
@@ -621,6 +650,86 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- صورة 12 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(11)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(12).jpeg" alt="تويوتا هايلوكس GR Sport رياضية" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">سيارات بيك آب</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">تويوتا هايلوكس GR Sport رياضية</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 12
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 13 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(12)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(13).jpeg" alt="تويوتا لاندكروزر LC300 الفاخرة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">دفع رباعي فاخر</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">تويوتا لاندكروزر LC300 الفاخرة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 13
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 14 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(13)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(14).jpeg" alt="تويوتا هايلوكس دبل كابينة" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">سيارات بيك آب</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">تويوتا هايلوكس دبل كابينة</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 14
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة 15 -->
+                <div class="glass-card rounded-3xl overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/60 transition-all duration-300 shadow-xl flex flex-col" onclick="openLightbox(14)">
+                    <div class="relative h-64 overflow-hidden bg-dark-800">
+                        <img src="(15).jpeg" alt="هيونداي كريتا SUV عصرية" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-900/95 via-dark-900/30 to-transparent opacity-75 group-hover:opacity-90 transition-opacity"></div>
+                        <div class="absolute top-4 left-4 w-10 h-10 rounded-full bg-dark-900/80 backdrop-blur-md text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 shadow-lg border border-white/10">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </div>
+                        <div class="absolute bottom-4 right-4 left-4 flex items-end justify-between gap-2">
+                            <div>
+                                <span class="text-[11px] font-bold text-amber-400 block mb-1">سيارات SUV</span>
+                                <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition">هيونداي كريتا SUV عصرية</h3>
+                            </div>
+                            <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                                <i class="fa-regular fa-image"></i> 15
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -643,7 +752,27 @@
                             <span>أرقام التواصل المباشر</span>
                         </h3>
 
-                        <!-- الرقم الأول: 0912133693 -->
+                        <!-- الرقم الأول: 0912126370 -->
+                        <div class="bg-dark-900/80 p-4 rounded-2xl border border-gray-800 flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block">اتصال هاتفي مباشر</span>
+                                    <a href="tel:0912126370" dir="ltr" class="text-xl font-black text-white hover:text-amber-400 transition block">
+                                        091 212 6370
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <a href="tel:0912126370" class="bg-amber-500 hover:bg-amber-400 text-dark-900 font-bold text-xs px-3.5 py-2 rounded-xl transition">
+                                    اتصال
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- الرقم الثاني: 0912125186 -->
                         <div class="bg-dark-900/80 p-4 rounded-2xl border border-gray-800 flex items-center justify-between">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
@@ -651,19 +780,19 @@
                                 </div>
                                 <div>
                                     <span class="text-xs text-gray-400 block">اتصال هاتفي مباشر</span>
-                                    <a href="tel:0912133693" dir="ltr" class="text-xl font-black text-white hover:text-amber-400 transition block">
-                                        091 213 3693
+                                    <a href="tel:0912125186" dir="ltr" class="text-xl font-black text-white hover:text-amber-400 transition block">
+                                        091 212 5186
                                     </a>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <a href="tel:0912133693" class="bg-amber-500 hover:bg-amber-400 text-dark-900 font-bold text-xs px-3.5 py-2 rounded-xl transition">
+                                <a href="tel:0912125186" class="bg-amber-500 hover:bg-amber-400 text-dark-900 font-bold text-xs px-3.5 py-2 rounded-xl transition">
                                     اتصال
                                 </a>
                             </div>
                         </div>
 
-                        <!-- الرقم الثاني: 0947190000 (واتس وعادي) -->
+                        <!-- الرقم الثالث: 0947190000 (واتس وعادي) -->
                         <div class="bg-dark-900/80 p-4 rounded-2xl border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl">
@@ -738,8 +867,10 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
-                    <a href="tel:0912133693" class="hover:text-amber-400 transition"><i class="fa-solid fa-phone ml-1 text-amber-400"></i> <span dir="ltr">091 213 3693</span></a>
+                <div class="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-gray-400">
+                    <a href="tel:0912126370" class="hover:text-amber-400 transition"><i class="fa-solid fa-phone ml-1 text-amber-400"></i> <span dir="ltr">091 212 6370</span></a>
+                    <span>|</span>
+                    <a href="tel:0912125186" class="hover:text-amber-400 transition"><i class="fa-solid fa-phone ml-1 text-amber-400"></i> <span dir="ltr">091 212 5186</span></a>
                     <span>|</span>
                     <a href="https://wa.me/218947190000" target="_blank" class="hover:text-emerald-400 transition"><i class="fa-brands fa-whatsapp ml-1 text-emerald-400"></i> <span dir="ltr">094 719 0000</span></a>
                 </div>
@@ -792,7 +923,7 @@
                     <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
                     <span id="lightbox-title" class="font-bold text-white"></span>
                 </div>
-                <span id="lightbox-counter" class="text-gray-400 font-mono bg-white/10 px-3 py-1 rounded-full border border-white/10">1 / 11</span>
+                <span id="lightbox-counter" class="text-gray-400 font-mono bg-white/10 px-3 py-1 rounded-full border border-white/10">1 / 15</span>
             </div>
         </div>
     </div>
@@ -825,7 +956,11 @@
             { src: "(8).jpeg", title: "شاحنة قوية للطرق الوعرة" },
             { src: "(9).jpeg", title: "شاحنة أعمال مقاولات وإنشاءات" },
             { src: "(10).jpeg", title: "رأس جرار عالي الكفاءة" },
-            { src: "(11).jpeg", title: "شاحنة مواصفات قياسية معتمدة" }
+            { src: "(11).jpeg", title: "شاحنة مواصفات قياسية معتمدة" },
+            { src: "(12).jpeg", title: "تويوتا هايلوكس GR Sport رياضية" },
+            { src: "(13).jpeg", title: "تويوتا لاندكروزر LC300 الفاخرة" },
+            { src: "(14).jpeg", title: "تويوتا هايلوكس دبل كابينة حديثة" },
+            { src: "(15).jpeg", title: "هيونداي كريتا SUV عصرية" }
         ];
 
         let currentLightboxIndex = 0;
